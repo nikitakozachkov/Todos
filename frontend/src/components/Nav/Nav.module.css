@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  padding: 0 18px;
+  background-color: transparent;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.container a {
+  display: inline-block;
+  padding: 12px 0;
+
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #000;
+}
+
+.logo {
+  margin: 0;
+
+  font-size: 24px;
+  font-weight: 800;
+  color: #000000;
+}
+
+.logo span {
+  color: #EA906C;
+}
+
+.auth {
+  display: flex;
+  align-items: center;
+}
+
+.auth p {
+  margin: 0;
+
+  margin-right: 12px;
+  line-height: 50%;
+}
+
+.auth button {
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+
+  font-size: 16px;
+  line-height: 50%;
+  height: 100%;
+}

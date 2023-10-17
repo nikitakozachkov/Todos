@@ -1,0 +1,34 @@
+.form label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+
+  font-size: 12px;
+}
+
+.form input {
+  display: block;
+  background-color: #f0f0f0;
+}
+
+.form textarea {
+  resize: none;
+
+  height: 70px;
+  padding: 4px 12px;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.controls button {
+  transition: color 150ms linear;
+}
+
+.controls button:hover, .button:focus {
+  color: #DE8F5F;
+}

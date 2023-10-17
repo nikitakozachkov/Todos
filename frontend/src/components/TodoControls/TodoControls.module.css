@@ -1,0 +1,19 @@
+.controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.button {
+  transition: color 150ms linear;
+}
+
+.button:hover, .button:focus {
+  color: #DE8F5F;
+}
+
+.active {
+  color: #DE8F5F;
+}

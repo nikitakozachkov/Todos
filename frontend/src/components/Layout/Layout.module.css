@@ -1,0 +1,26 @@
+.main {
+  padding: 14px 18px 24px 18px;
+  border-radius: 16px;
+}
+
+.wrapper {
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 767px) {
+  .wrapper {
+    max-width: 480px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    width: 768px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .wrapper {
+    width: 1024px;
+  }
+}

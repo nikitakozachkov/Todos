@@ -1,0 +1,21 @@
+.text {
+  margin: 0;
+
+  margin-bottom: 12px;
+  
+  text-align: center;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.controls button {
+  transition: color 150ms linear;
+}
+
+.controls button:hover, .button:focus {
+  color: #DE8F5F;
+}

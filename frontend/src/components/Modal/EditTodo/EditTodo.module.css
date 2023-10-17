@@ -1,0 +1,49 @@
+.form label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+
+  font-size: 12px;
+}
+
+.form label:first-of-type input {
+  display: none;
+}
+
+.form input,
+.form textarea {
+  display: block;
+  background-color: #f0f0f0;
+}
+
+.form textarea {
+  resize: none;
+
+  height: 70px;
+  padding: 4px 12px;
+}
+
+.cover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  border: 1px solid #000;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.controls button {
+  transition: color 150ms linear;
+}
+
+.controls button:hover, .button:focus {
+  color: #DE8F5F;
+}

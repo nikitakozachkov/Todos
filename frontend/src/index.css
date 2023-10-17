@@ -1,0 +1,43 @@
+@import-normalize;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Poppins, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+input,
+textarea,
+button,
+select {
+  margin: 0;
+  outline: none;
+
+  border: 1px solid #000;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+input,
+button {
+  height: 25px;
+  padding: 0 12px;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  font-family: inherit;
+}

@@ -1,0 +1,13 @@
+.container {
+  text-align: center;
+}
+
+.text {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.container a {
+  text-decoration: none;
+  color: #000000;
+}

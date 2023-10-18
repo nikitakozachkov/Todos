@@ -10,7 +10,7 @@ const { httpError, ctrlWrapper, sendEmail } = require("../utils");
 const { SECRET_KEY, BASE_URL, PORT } = process.env;
 
 const signup = async (req, res) => {
-  const { username, email, password } = req.body;
+  const { email, password } = req.body;
   const { error } = schemas.signupSchema.validate(req.body);
 
   if (error) {
@@ -35,7 +35,7 @@ const signup = async (req, res) => {
   const verifyEmail = {
     to: email,
     subject: "Email verification",
-    html: `<a target="_blank" href="${BASE_URL}:${PORT}/api/auth/verify/${verificationToken}">Click to verify your email</a>`,
+    html: `<a target="_blank" href="${BASE_URL}/api/auth/verify/${verificationToken}">Click to verify your email</a>`,
   };
 
   await sendEmail(verifyEmail);
@@ -62,7 +62,7 @@ const verifyEmail = async (req, res) => {
     verificationToken: null,
   });
 
-  res.redirect("http://localhost:3000/login")
+  res.redirect("https://todos-git-main-nikitakozachkov.vercel.app/login")
 };
 
 const resendVerifyEmail = async (req, res) => {
@@ -90,7 +90,7 @@ const resendVerifyEmail = async (req, res) => {
   const verifyEmail = {
     to: email,
     subject: "Email verification",
-    html: `<a target="_blank" href="${BASE_URL}:${PORT}/api/auth/verify/${user.verificationToken}">Click to verify your email</a>`,
+    html: `<a target="_blank" href="${BASE_URL}/api/auth/verify/${user.verificationToken}">Click to verify your email</a>`,
   };
 
   await sendEmail(verifyEmail);

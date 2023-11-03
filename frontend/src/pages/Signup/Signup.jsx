@@ -38,9 +38,9 @@ function Signup() {
       } catch {
         toast.error("Something went wrong, please try again later");
       }
+    } else {
+      toast.error("Email is already in use");
     }
-
-    toast.error("Email is already in use");
   };
 
   return (

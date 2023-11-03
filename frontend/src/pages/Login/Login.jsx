@@ -28,9 +28,9 @@ function Login() {
       } catch {
         toast.error("Something went wrong, please try again later");
       }
+    } else {
+      toast.error("Incorrect email or password");
     }
-
-    toast.error("Incorrect email or password");
   };
 
   return (

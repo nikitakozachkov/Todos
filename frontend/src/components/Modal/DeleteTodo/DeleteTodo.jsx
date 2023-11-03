@@ -1,4 +1,5 @@
 import { useDispatch } from "react-redux";
+import toast from "react-hot-toast";
 import { deleteTodo } from "redux/todos/actions";
 import styles from "./DeleteTodo.module.css";
 
@@ -7,10 +8,11 @@ export const DeleteTodo = ({ onClose, id }) => {
 
   const handleButtonClick = async () => {
     try {
-      onClose();
+      toast.success("Successfully deleted");
       dispatch(deleteTodo(id));
+      onClose();
     } catch {
-      alert("Something went wrong, please try again later");
+      toast.error("Something went wrong, please try again later");
     }
   };
 

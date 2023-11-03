@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import toast from "react-hot-toast";
 import { updateTodo } from "redux/todos/actions";
 import { getTodo } from "services/todo-api";
 import styles from "./EditTodo.module.css";
@@ -17,7 +18,7 @@ export const EditTodo = ({ onClose, id }) => {
 
         setCurrentValues(todo);
       } catch {
-        return alert("Something went wrong, please try later");
+        toast.error("Something went wrong, please try again later");
       }
     };
 
@@ -28,7 +29,7 @@ export const EditTodo = ({ onClose, id }) => {
     event.preventDefault();
 
     const form = event.currentTarget;
-    
+
     try {
       const formData = new FormData();
 
@@ -41,26 +42,32 @@ export const EditTodo = ({ onClose, id }) => {
       form.reset();
 
       const data = { id, formData };
-      
+
+      toast.success("Successfully updated")
       dispatch(updateTodo(data));
       onClose();
     } catch {
-      alert("Something went wrong, please try again later");
+      toast.error("Something went wrong, please try again later");
     }
   };
 
   const handleFileInputChange = (event) => {
     setFileName(event.currentTarget.files[0].name);
-  }
+  };
 
   return (
     <form className={styles.form} onSubmit={handleFormSubmit}>
       <label>
         Cover
-
-        <div className={styles.cover}>{fileName ? fileName : "Select image"}</div>
-
-        <input type="file" accept="image/png, image/jpeg" name="cover" onChange={handleFileInputChange} />
+        <div className={styles.cover}>
+          {fileName ? fileName : "Select image"}
+        </div>
+        <input
+          type="file"
+          accept="image/png, image/jpeg"
+          name="cover"
+          onChange={handleFileInputChange}
+        />
       </label>
 
       <label>

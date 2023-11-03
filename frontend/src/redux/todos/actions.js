@@ -40,7 +40,6 @@ export const deleteTodo = createAsyncThunk(
 export const updateTodo = createAsyncThunk(
   "todos/updateById",
   async (data, { rejectWithValue }) => {
-    console.log(data);
     try {
       const todos = await todoAPI.updateTodo(data);
       return todos;

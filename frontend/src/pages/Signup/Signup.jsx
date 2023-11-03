@@ -1,13 +1,17 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { signupUser } from "redux/auth/actions";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
+import { signupUser } from "redux/auth/actions";
+import { getIsError } from "redux/auth/selectors";
 import { Modal } from "components/Modal/Modal";
 import { EmailVerification } from "components/Modal/EmailVerification/EmailVerification";
 import styles from "./Signup.module.css";
 
 function Signup() {
   const dispatch = useDispatch();
+
+  const isError = useSelector(getIsError);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -20,18 +24,23 @@ function Signup() {
 
     const form = event.currentTarget;
 
-    try {
-      const user = {
-        username: form.elements.username.value.trim(),
-        email: form.elements.email.value.trim(),
-        password: form.elements.password.value.trim(),
-      };
+    if (!isError) {
+      try {
+        const user = {
+          username: form.elements.username.value.trim(),
+          email: form.elements.email.value.trim(),
+          password: form.elements.password.value.trim(),
+        };
 
-      dispatch(signupUser(user));
-      form.reset();
-    } catch {
-      alert("Something went wrong, please try again later");
+        toast.success("Please verify your email");
+        dispatch(signupUser(user));
+        form.reset();
+      } catch {
+        toast.error("Something went wrong, please try again later");
+      }
     }
+
+    toast.error("Email is already in use");
   };
 
   return (

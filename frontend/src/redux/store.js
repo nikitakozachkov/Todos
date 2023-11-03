@@ -11,12 +11,12 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { todosReducer } from "./todos/slice";
-import { authReducer } from './auth/slice';
+import { authReducer } from "./auth/slice";
 
 const authPersistConfig = {
-  key: 'auth',
+  key: "auth",
   storage,
-  whitelist: ['token'],
+  whitelist: ["token"],
 };
 
 const middleware = [

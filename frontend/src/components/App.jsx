@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { lazy, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import toast from "react-hot-toast";
 import { refreshUser } from "redux/auth/actions";
 import { getIsRefreshing } from "redux/auth/selectors";
 import { PrivateRoute } from "./PrivateRoute";
@@ -17,7 +18,11 @@ export const App = () => {
   const isRefreshing = useSelector(getIsRefreshing);
 
   useEffect(() => {
-    dispatch(refreshUser());
+    try {
+      dispatch(refreshUser());
+    } catch {
+      toast.error("Something went wrong, please try again later");
+    }
   }, [dispatch]);
 
   return (

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import toast from "react-hot-toast";
 import { updateTodoStatus } from "redux/todos/actions";
 import { getTodo } from "services/todo-api";
 import styles from "./TodoControls.module.css";
@@ -16,7 +17,7 @@ export const TodoControls = ({ handleModalClick, id }) => {
 
         setIsButtonActive(todo.isDone);
       } catch {
-        return alert("Something went wrong, please try later");
+        toast.error("Something went wrong, please try again later");
       }
     };
 
@@ -37,7 +38,7 @@ export const TodoControls = ({ handleModalClick, id }) => {
 
       dispatch(updateTodoStatus({ id, status }));
     } catch {
-      alert("Something went wrong, please try again later");
+      toast.error("Something went wrong, please try again later");
     }
   };
 

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import toast from "react-hot-toast";
 import { getIsLoading, getAll } from "redux/todos/selectors";
 import { getTodos } from "redux/todos/actions";
 import { setFilter } from "redux/todos/slice";
@@ -23,7 +24,7 @@ function Home() {
       try {
         dispatch(getTodos());
       } catch {
-        alert("Something went wrong, please try again later");
+        toast.error("Something went wrong, please try again later");
       }
     };
 
@@ -38,7 +39,7 @@ function Home() {
     try {
       dispatch(setFilter(event.currentTarget.value));
     } catch {
-      alert("Something went wrong, please try again later");
+      toast.error("Something went wrong, please try again later");
     }
   };
 

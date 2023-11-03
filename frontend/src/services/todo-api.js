@@ -23,7 +23,6 @@ export async function deleteTodo(id) {
 }
 
 export async function updateTodo(todo) {
-  console.log(todo.formData);
   const { data } = await axios.put(`/todos/${todo.id}`, todo.formData);
   return data;
 }

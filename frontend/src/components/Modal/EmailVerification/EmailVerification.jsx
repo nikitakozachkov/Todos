@@ -1,3 +1,4 @@
+import toast from "react-hot-toast";
 import { resendVerificationUser } from "services/auth-api";
 import styles from "./EmailVerification.module.css";
 
@@ -12,14 +13,14 @@ export const EmailVerification = ({ onClose }) => {
         email: form.elements.email.value.trim(),
       };
 
-      const data = await resendVerificationUser(credentials);
-      alert(data.message);
+      await resendVerificationUser(credentials);
 
       form.reset();
 
+      toast.success("Email verification was sent");
       onClose();
-    } catch (error) {
-      alert("Verification already passed or no such account")
+    } catch {
+      toast.error("Verification already passed or no such account");
     }
   };
 

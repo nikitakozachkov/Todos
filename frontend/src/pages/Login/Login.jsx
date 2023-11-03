@@ -1,27 +1,36 @@
-import { useDispatch } from "react-redux";
-import { loginUser } from "redux/auth/actions";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
+import { loginUser } from "redux/auth/actions";
+import { getIsError } from "redux/auth/selectors";
 import styles from "./Login.module.css";
 
 function Login() {
   const dispatch = useDispatch();
+
+  const isError = useSelector(getIsError);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
     const form = event.currentTarget;
 
-    try {
-      const user = {
-        email: form.elements.email.value.trim(),
-        password: form.elements.password.value.trim(),
-      };
+    if (!isError) {
+      try {
+        const user = {
+          email: form.elements.email.value.trim(),
+          password: form.elements.password.value.trim(),
+        };
 
-      dispatch(loginUser(user));
-      form.reset();
-    } catch {
-      alert("Something went wrong, please try again later");
+        toast.success("Successfully logged in");
+        dispatch(loginUser(user));
+        form.reset();
+      } catch {
+        toast.error("Something went wrong, please try again later");
+      }
     }
+
+    toast.error("Incorrect email or password");
   };
 
   return (

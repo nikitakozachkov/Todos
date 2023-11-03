@@ -1,32 +1,30 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { signupUser, loginUser, logoutUser, refreshUser } from './actions';
+import { createSlice } from "@reduxjs/toolkit";
+import { signupUser, loginUser, logoutUser, refreshUser } from "./actions";
 
 const authSlice = createSlice({
-  name: 'auth',
+  name: "auth",
   initialState: {
     user: { username: null, email: null },
     token: null,
     isLoggedIn: false,
     isRefreshing: false,
+    isError: false,
   },
   extraReducers: {
     [signupUser.fulfilled](state, action) {
       state.user = action.payload.user;
       state.token = action.payload.token;
-      alert("Please verify your email");
     },
-    [signupUser.rejected](state, action) {
-      alert("Email already in use");
+    [signupUser.rejected](state) {
       return state;
     },
     [loginUser.fulfilled](state, action) {
       state.user = action.payload.user;
       state.token = action.payload.token;
       state.isLoggedIn = true;
-      alert('Login successful');
     },
     [loginUser.rejected](state) {
-      alert('Incorrect email or password');
+      state.isError = true;
       return state;
     },
     [logoutUser.fulfilled](state) {

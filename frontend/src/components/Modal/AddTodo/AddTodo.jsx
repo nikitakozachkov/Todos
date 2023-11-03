@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTodo } from "redux/todos/actions";
+import toast from "react-hot-toast";
 import styles from "./AddTodo.module.css";
 
 export const AddTodo = ({ onClose }) => {
   const dispatch = useDispatch();
-  
+
   const [fileName, setFileName] = useState(null);
 
   const handleFormSubmit = async (event) => {
@@ -24,16 +25,17 @@ export const AddTodo = ({ onClose }) => {
 
       form.reset();
 
+      toast.success("Successfully added");
       dispatch(addTodo(formData));
       onClose();
     } catch {
-      alert("Something went wrong, please try again later");
+      toast.error("Something went wrong, please try again later");
     }
   };
 
   const handleFileInputChange = (event) => {
     setFileName(event.currentTarget.files[0].name);
-  }
+  };
 
   return (
     <form className={styles.form} onSubmit={handleFormSubmit}>

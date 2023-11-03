@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import toast from "react-hot-toast";
 import { getUser, getIsLoggedIn } from "redux/auth/selectors";
 import { logoutUser } from "redux/auth/actions";
 import styles from "./Nav.module.css";
@@ -13,7 +14,7 @@ export const Nav = () => {
     try {
       dispatch(logoutUser());
     } catch {
-      alert("Something went wrong, please try again later");
+      toast.error("Something went wrong, please try again later");
     }
   };
 

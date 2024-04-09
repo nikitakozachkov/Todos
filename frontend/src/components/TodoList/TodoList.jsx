@@ -31,7 +31,7 @@ export const TodoList = ({ categoryValue }) => {
               {cover && (
                 <div className={styles.cover}>
                   <img
-                    src={`https://todos-henna-seven.vercel.app/${cover}`}
+                    src={`https://todos-henna-seven.vercel.app/todoCovers/${cover}`}
                     height="180"
                     alt={title}
                   />

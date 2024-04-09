@@ -31,7 +31,7 @@ export const TodoList = ({ categoryValue }) => {
               {cover && (
                 <div className={styles.cover}>
                   <img
-                    src={`https://evening-harbor-92967-62e8bfc8b001.herokuapp.com/${cover}`}
+                    src={`https://todos-henna-seven.vercel.app/${cover}`}
                     height="180"
                     alt={title}
                   />
@@ -75,7 +75,7 @@ export const TodoList = ({ categoryValue }) => {
           {cover && (
             <div className={styles.cover}>
               <img
-                src={`https://evening-harbor-92967-62e8bfc8b001.herokuapp.com/${cover}`}
+                src={`https://todos-henna-seven.vercel.app//${cover}`}
                 height="180"
                 alt={title}
               />

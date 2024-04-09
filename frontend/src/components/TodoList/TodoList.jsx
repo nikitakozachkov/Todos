@@ -26,33 +26,35 @@ export const TodoList = ({ categoryValue }) => {
     return (
       <ul className={styles.list}>
         {results.map(
-          ({ _id, cover, title, description, category, deadline }) => (
-            <li key={_id} className={styles.item}>
-              {cover && (
-                <div className={styles.cover}>
-                  <img
-                    src={`https://todos-henna-seven.vercel.app/todoCovers/${cover}`}
-                    height="180"
-                    alt={title}
-                  />
+          ({ _id, cover, title, description, category, deadline }) => {
+            return(
+              <li key={_id} className={styles.item}>
+                {cover && (
+                  <div className={styles.cover}>
+                    <img
+                      src={`https://todos-henna-seven.vercel.app/${cover}`}
+                      height="180"
+                      alt={title}
+                    />
+                  </div>
+                )}
+
+                <div className={styles.info}>
+                  <h2>{title}</h2>
+
+                  <p>
+                    Description: {description ? description : "No description"}
+                  </p>
+
+                  <p>Category: {category}</p>
+
+                  <p>Deadline: {deadline ? deadline : "No deadline"}</p>
                 </div>
-              )}
 
-              <div className={styles.info}>
-                <h2>{title}</h2>
-
-                <p>
-                  Description: {description ? description : "No description"}
-                </p>
-
-                <p>Category: {category}</p>
-
-                <p>Deadline: {deadline ? deadline : "No deadline"}</p>
-              </div>
-
-              <TodoControls handleModalClick={handleModalClick} id={_id} />
-            </li>
-          )
+                <TodoControls handleModalClick={handleModalClick} id={_id} />
+              </li>
+            );
+          }
         )}
 
         {isModalOpen && (
@@ -75,7 +77,7 @@ export const TodoList = ({ categoryValue }) => {
           {cover && (
             <div className={styles.cover}>
               <img
-                src={`https://todos-henna-seven.vercel.app//${cover}`}
+                src={`https://todos-henna-seven.vercel.app/${cover}`}
                 height="180"
                 alt={title}
               />

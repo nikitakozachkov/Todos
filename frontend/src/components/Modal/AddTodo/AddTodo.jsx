@@ -17,7 +17,6 @@ export const AddTodo = ({ onClose }) => {
     try {
       const formData = new FormData();
 
-      console.log(formData.append("cover", form.elements.cover.files[0]));
       formData.append("cover", form.elements.cover.files[0]);
       formData.append("title", form.elements.title.value.trim());
       formData.append("description", form.elements.description.value.trim());
@@ -27,7 +26,7 @@ export const AddTodo = ({ onClose }) => {
       form.reset();
 
       toast.success("Successfully added");
-      // dispatch(addTodo(formData));
+      dispatch(addTodo(formData));
       onClose();
     } catch {
       toast.error("Something went wrong, please try again later");

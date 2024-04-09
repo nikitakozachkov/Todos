@@ -38,11 +38,8 @@ const add = async (req, res) => {
   if (req.file) {
     const { path: tempUpload, originalname } = req.file;
 
-    const tempPath = path.join(tempUpload, "data.json");
-    const file = await fs.writeFileSync(tempPath, JSON.stringify(data));
-    // const resultUpload = path.join(todoCoversDir, `${owner}_${originalname}`);
-    // await fs.rename(tempUpload, resultUpload);
-    console.log(file);
+    const resultUpload = path.join(todoCoversDir, `${owner}_${originalname}`);
+    await fs.rename(tempUpload, resultUpload);
 
     cover = path.join("todoCovers", `${owner}_${originalname}`);
   }

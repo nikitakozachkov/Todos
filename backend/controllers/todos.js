@@ -29,8 +29,6 @@ const add = async (req, res) => {
   const { _id: owner } = req.user;
   const { error } = schemas.addSchema.validate(req.body);
 
-  console.log(req.file);
-
   if (error) {
     throw httpError(400, error.message);
   }

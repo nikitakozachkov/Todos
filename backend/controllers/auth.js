@@ -7,7 +7,7 @@ const { User } = require("../models/user");
 const { schemas } = require("../models/user");
 const { httpError, ctrlWrapper, sendEmail } = require("../utils");
 
-const { SECRET_KEY, BASE_URL, PORT } = process.env;
+const { SECRET_KEY, BASE_URL } = process.env;
 
 const signup = async (req, res) => {
   const { email, password } = req.body;

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "https://evening-harbor-92967-62e8bfc8b001.herokuapp.com/api";
+axios.defaults.baseURL = "https://todos-henna-seven.vercel.app/api";
 
 export async function getTodos() {
   const { data } = await axios.get("/todos");

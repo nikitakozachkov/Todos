@@ -27,8 +27,7 @@ const todosSlice = createSlice({
       state.isLoading = true;
     },
     [addTodo.fulfilled](state, action) {
-      console.log(action.payload);
-      // state.items.push(action.payload);
+      state.items.push(action.payload);
       state.isLoading = false;
     },
     [deleteTodo.pending](state) {

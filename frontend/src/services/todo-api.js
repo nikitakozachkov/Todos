@@ -1,7 +1,6 @@
 import axios from "axios";
 
-// axios.defaults.baseURL = "http://localhost:4000/api";
-axios.defaults.baseURL = "https://todos-server-dm0p6zjbq-nikitakozachkovs-projects.vercel.app/api";
+axios.defaults.baseURL = "https://todos-henna-seven.vercel.app/api";
 
 export async function getTodos() {
   const { data } = await axios.get("/todos");

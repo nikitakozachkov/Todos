@@ -2,10 +2,10 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node ./server.js",
-    "dev": "cross-env NODE_ENV=development nodemon ./server.js"
+    "start": "cross-env NODE_ENV=production node ./index.js",
+    "dev": "cross-env NODE_ENV=development nodemon ./index.js"
   },
   "keywords": [],
   "author": "",

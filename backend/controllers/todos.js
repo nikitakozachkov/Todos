@@ -39,7 +39,8 @@ const add = async (req, res) => {
     const { path: tempUpload, originalname } = req.file;
 
     const resultUpload = path.join(todoCoversDir, `${owner}_${originalname}`);
-    await fs.rename(tempUpload, resultUpload);
+    // await fs.rename(tempUpload, resultUpload);
+    await fs.writeFileSync(tempUpload, resultUpload);
 
     cover = path.join("todoCovers", `${owner}_${originalname}`);
   }
@@ -75,8 +76,7 @@ const updateById = async (req, res) => {
     const { path: tempUpload, originalname } = req.file;
 
     const resultUpload = path.join(todoCoversDir, `${owner}_${originalname}`);
-    // await fs.rename(tempUpload, resultUpload);
-    await fs.writeFileSync(tempUpload, resultUpload);
+    await fs.rename(tempUpload, resultUpload);
 
     cover = path.join("todoCovers", `${owner}_${originalname}`);
   }
@@ -92,7 +92,6 @@ const updateById = async (req, res) => {
   }
 
   res.json(result);
-  console.log(result);
 };
 
 const updateStatus = async (req, res) => {

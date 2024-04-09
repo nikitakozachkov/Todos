@@ -27,7 +27,7 @@ export const AddTodo = ({ onClose }) => {
       form.reset();
 
       toast.success("Successfully added");
-      // dispatch(addTodo(formData));
+      dispatch(addTodo(formData));
       onClose();
     } catch {
       toast.error("Something went wrong, please try again later");
